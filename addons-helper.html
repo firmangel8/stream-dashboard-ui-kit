@@ -25,6 +25,12 @@
 		<!-- Theme Styles -->
 		<link rel="stylesheet" href="./assets/css/theme.css">
 		<link rel="stylesheet" href="./assets/css/addons.css"/>
+
+		<!--External Resources Highcharts-->
+		<script src="https://code.highcharts.com/highcharts.js"></script>
+		<script src="https://code.highcharts.com/modules/data.js"></script>
+		<script src="https://code.highcharts.com/modules/drilldown.js"></script>
+		<!--External Resources Highcharts-->
 	</head>
 	<!-- End Head -->
 
@@ -715,311 +721,286 @@
 					<!--Helper Starter Widget-->
 					<!--Helper Starter Charts Tabs-->
 					<div class="row">
-						<div class="card mb-4">
-							<!-- Card Header -->
-							<header class="card-header d-md-flex align-items-center">
-								<h2 class="h3 card-header-title">Overall Income</h2>
-						
-								<!-- Nav Tabs -->
-								<ul id="overallIncomeTabsControl" class="nav nav-tabs card-header-tabs ml-md-auto mt-3 mt-md-0">
-									<li class="nav-item mr-4">
-										<a class="nav-link active show" href="#overallIncomeTab1" role="tab" aria-selected="true" data-toggle="tab">
-											<span class="d-none d-md-inline">Last</span>
-											7 days
-										</a>
-									</li>
-									<li class="nav-item mr-4">
-										<a class="nav-link" href="#overallIncomeTab2" role="tab" aria-selected="false" data-toggle="tab">
-											<span class="d-none d-md-inline">Last</span>
-											30 days
-										</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="#overallIncomeTab3" role="tab" aria-selected="false" data-toggle="tab">
-											<span class="d-none d-md-inline">Last</span>
-											90 days
-										</a>
-									</li>
-								</ul>
-								<!-- End Nav Tabs -->
-							</header>
-							<!-- End Card Header -->
-							<!-- Card Body -->
-							<div class="card-body">
-								<div class="tab-content" id="overallIncomeTabs">
-									<!-- Tab Content -->
-									<div class="tab-pane fade active show" id="overallIncomeTab1" role="tabpanel">
-										<div class="row">
-											<!-- Chart -->
-											<div class="col-md-9 mb-4 mb-md-0" style="min-height: 300px;">
-												<div style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"
-												 class="chartjs-size-monitor">
-													<div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
-														<div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
-													</div>
-													<div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
-														<div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
-													</div>
+						<div class="col-12">
+							<div class="card mb-4">
+								<!-- Card Header -->
+								<header class="card-header d-md-flex align-items-center">
+									<h2 class="h3 card-header-title">Overall Statistics</h2>
+							
+									<!-- Nav Tabs -->
+									<ul id="overallIncomeTabsControl" class="nav nav-tabs card-header-tabs ml-md-auto mt-3 mt-md-0">
+										<li class="nav-item mr-4">
+											<a class="nav-link active show" href="#overallIncomeTab1" role="tab" aria-selected="true" data-toggle="tab">
+												<span class="d-none d-md-inline">Last</span>
+												7 days
+											</a>
+										</li>
+										<li class="nav-item mr-4">
+											<a class="nav-link" href="#overallIncomeTab2" role="tab" aria-selected="false" data-toggle="tab">
+												<span class="d-none d-md-inline">Last</span>
+												30 days
+											</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="#overallIncomeTab3" role="tab" aria-selected="false" data-toggle="tab">
+												<span class="d-none d-md-inline">Last</span>
+												Last Years
+											</a>
+										</li>
+									</ul>
+									<!-- End Nav Tabs -->
+								</header>
+								<!-- End Card Header -->
+								<!-- Card Body -->
+								<div class="card-body">
+									<div class="tab-content" id="overallIncomeTabs">
+										<!-- Tab Content -->
+										<div class="tab-pane fade active show" id="overallIncomeTab1" role="tabpanel">
+											<div class="row">
+												<!-- Chart -->
+												<div class="col-md-9 mb-4 mb-md-0" style="min-height: 300px;">
+													<div id="fm-helper-charts-spline" class="m-0 fm-chart-ws"></div>
 												</div>
-												<canvas class="js-overall-income-chart chartjs-render-monitor" width="741" height="300" style="display: block; width: 741px; height: 300px;"></canvas>
-											</div>
-											<!-- End Chart -->
-						
-											<div class="col-md-3">
-												<!-- Total Income -->
-												<div>
-													<div class="media align-items-center">
-														<div class="media-body d-flex align-items-baseline">
-															<span class="u-indicator u-indicator--xxs bg-primary mr-2"></span>
-															<h5 class="h6 text-muted text-uppercase mb-1">Total Income</h5>
+												<!-- End Chart -->
+												<div class="col-md-3">
+													<!-- Total Hits -->
+													<div>
+														<div class="media align-items-center">
+															<div class="media-body d-flex align-items-baseline">
+																<span class="u-indicator u-indicator--xxs bg-primary mr-2"></span>
+																<h5 class="h6 text-muted text-uppercase mb-1">Total Hits</h5>
+															</div>
+							
+															<div class="d-flex align-items-center h4 text-success">
+																<span>+9.5%</span>
+																<span class="small">
+																	<i class="fa fa-arrow-up ml-2"></i>
+																</span>
+															</div>
 														</div>
-						
-														<div class="d-flex align-items-center h4 text-success">
-															<span>+9.5%</span>
-															<span class="small">
-																<i class="fa fa-arrow-up ml-2"></i>
-															</span>
-														</div>
+														<span class="h3 mb-0">$6,400</span>
 													</div>
-													<span class="h3 mb-0">$6,400</span>
-												</div>
-												<!-- End Total Income -->
-						
-												<hr>
-						
-												<!-- Total Installs -->
-												<div>
-													<div class="media align-items-center">
-														<div class="media-body d-flex align-items-baseline">
-															<span class="u-indicator u-indicator--xxs bg-secondary mr-2"></span>
-															<h5 class="h6 text-muted text-uppercase mb-1">Total Installs</h5>
+													<!-- End Total Hits -->
+							
+													<hr>
+							
+													<!-- Total Installs -->
+													<div>
+														<div class="media align-items-center">
+															<div class="media-body d-flex align-items-baseline">
+																<span class="u-indicator u-indicator--xxs bg-secondary mr-2"></span>
+																<h5 class="h6 text-muted text-uppercase mb-1">Total Installs</h5>
+															</div>
+							
+															<div class="d-flex align-items-center h4 text-success">
+																<span>+7.5%</span>
+																<span class="small">
+																	<i class="fa fa-arrow-up ml-2"></i>
+																</span>
+															</div>
 														</div>
-						
-														<div class="d-flex align-items-center h4 text-success">
-															<span>+7.5%</span>
-															<span class="small">
-																<i class="fa fa-arrow-up ml-2"></i>
-															</span>
-														</div>
+							
+														<span class="h3 mb-0">1,346,600</span>
 													</div>
-						
-													<span class="h3 mb-0">1,346,600</span>
-												</div>
-												<!-- End Total Installs -->
-						
-												<hr>
-						
-												<!-- Active Users -->
-												<div>
-													<div class="media align-items-center">
-														<div class="media-body d-flex align-items-baseline">
-															<span class="u-indicator u-indicator--xxs bg-info mr-2"></span>
-															<h5 class="h6 text-muted text-uppercase mb-1">Active Users</h5>
+													<!-- End Total Installs -->
+							
+													<hr>
+							
+													<!-- Active Users -->
+													<div>
+														<div class="media align-items-center">
+															<div class="media-body d-flex align-items-baseline">
+																<span class="u-indicator u-indicator--xxs bg-info mr-2"></span>
+																<h5 class="h6 text-muted text-uppercase mb-1">Active Users</h5>
+															</div>
+							
+															<div class="d-flex align-items-center h4 text-danger">
+																<span>-3.5%</span>
+																<span class="small">
+																	<i class="fa fa-arrow-down ml-2"></i>
+																</span>
+															</div>
 														</div>
-						
-														<div class="d-flex align-items-center h4 text-danger">
-															<span>-3.5%</span>
-															<span class="small">
-																<i class="fa fa-arrow-down ml-2"></i>
-															</span>
-														</div>
+							
+														<span class="h3 mb-0">896,200</span>
 													</div>
-						
-													<span class="h3 mb-0">896,200</span>
+													<!-- End Active Users -->
+							
+													<hr>
+							
+													<a class="btn btn-block btn-outline-primary" href="#">Learn More</a>
 												</div>
-												<!-- End Active Users -->
-						
-												<hr>
-						
-												<a class="btn btn-block btn-outline-primary" href="#">Learn More</a>
 											</div>
 										</div>
-									</div>
-									<!-- End Tab Content -->
-						
-									<!-- Tab Content -->
-									<div class="tab-pane fade" id="overallIncomeTab2" role="tabpanel">
-										<div class="row">
-											<!-- Chart -->
-											<div class="col-md-9 mb-4 mb-md-0" style="min-height: 300px;">
-												<div style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"
-												 class="chartjs-size-monitor">
-													<div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
-														<div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
-													</div>
-													<div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
-														<div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
-													</div>
+										<!-- End Tab Content -->
+							
+										<!-- Tab Content -->
+										<div class="tab-pane fade" id="overallIncomeTab2" role="tabpanel">
+											<div class="row">
+												<!-- Chart -->
+												<div class="col-md-9 mb-4 mb-md-0" style="min-height: 300px;">
+													<div id="fm-helper-charts-spline2" class="fm-chart-ws"></div>
 												</div>
-												<canvas class="js-overall-income-chart chartjs-render-monitor" width="741" height="300" style="display: block; width: 741px; height: 300px;"></canvas>
-											</div>
-											<!-- End Chart -->
-						
-											<div class="col-md-3">
-												<!-- Total Income -->
-												<div>
-													<div class="media align-items-center">
-														<div class="media-body d-flex align-items-baseline">
-															<span class="u-indicator u-indicator--xxs bg-primary mr-2"></span>
-															<h5 class="h6 text-muted text-uppercase mb-1">Total Income</h5>
+												<!-- End Chart -->
+							
+												<div class="col-md-3">
+													<!-- Total Hits -->
+													<div>
+														<div class="media align-items-center">
+															<div class="media-body d-flex align-items-baseline">
+																<span class="u-indicator u-indicator--xxs bg-primary mr-2"></span>
+																<h5 class="h6 text-muted text-uppercase mb-1">Total Hits</h5>
+															</div>
+							
+															<div class="d-flex align-items-center h4 text-success">
+																<span>+10.4%</span>
+																<span class="small">
+																	<i class="fa fa-arrow-up ml-2"></i>
+																</span>
+															</div>
 														</div>
-						
-														<div class="d-flex align-items-center h4 text-success">
-															<span>+10.4%</span>
-															<span class="small">
-																<i class="fa fa-arrow-up ml-2"></i>
-															</span>
-														</div>
+														<span class="h3 mb-0">$48,650</span>
 													</div>
-													<span class="h3 mb-0">$48,650</span>
-												</div>
-												<!-- End Total Income -->
-						
-												<hr>
-						
-												<!-- Total Installs -->
-												<div>
-													<div class="media align-items-center">
-														<div class="media-body d-flex align-items-baseline">
-															<span class="u-indicator u-indicator--xxs bg-secondary mr-2"></span>
-															<h5 class="h6 text-muted text-uppercase mb-1">Total Installs</h5>
+													<!-- End Total Hits -->
+							
+													<hr>
+							
+													<!-- Total Installs -->
+													<div>
+														<div class="media align-items-center">
+															<div class="media-body d-flex align-items-baseline">
+																<span class="u-indicator u-indicator--xxs bg-secondary mr-2"></span>
+																<h5 class="h6 text-muted text-uppercase mb-1">Total Installs</h5>
+															</div>
+							
+															<div class="d-flex align-items-center h4 text-success">
+																<span>+7.9%</span>
+																<span class="small">
+																	<i class="fa fa-arrow-up ml-2"></i>
+																</span>
+															</div>
 														</div>
-						
-														<div class="d-flex align-items-center h4 text-success">
-															<span>+7.9%</span>
-															<span class="small">
-																<i class="fa fa-arrow-up ml-2"></i>
-															</span>
-														</div>
+							
+														<span class="h3 mb-0">5,169,854</span>
 													</div>
-						
-													<span class="h3 mb-0">5,169,854</span>
-												</div>
-												<!-- End Total Installs -->
-						
-												<hr>
-						
-												<!-- Active Users -->
-												<div>
-													<div class="media align-items-center">
-														<div class="media-body d-flex align-items-baseline">
-															<span class="u-indicator u-indicator--xxs bg-info mr-2"></span>
-															<h5 class="h6 text-muted text-uppercase mb-1">Active Users</h5>
+													<!-- End Total Installs -->
+							
+													<hr>
+							
+													<!-- Active Users -->
+													<div>
+														<div class="media align-items-center">
+															<div class="media-body d-flex align-items-baseline">
+																<span class="u-indicator u-indicator--xxs bg-info mr-2"></span>
+																<h5 class="h6 text-muted text-uppercase mb-1">Active Users</h5>
+															</div>
+							
+															<div class="d-flex align-items-center h4 text-danger">
+																<span>-2.5%</span>
+																<span class="small">
+																	<i class="fa fa-arrow-down ml-2"></i>
+																</span>
+															</div>
 														</div>
-						
-														<div class="d-flex align-items-center h4 text-danger">
-															<span>-2.5%</span>
-															<span class="small">
-																<i class="fa fa-arrow-down ml-2"></i>
-															</span>
-														</div>
+							
+														<span class="h3 mb-0">389,545</span>
 													</div>
-						
-													<span class="h3 mb-0">389,545</span>
+													<!-- End Active Users -->
+							
+													<hr>
+							
+													<a class="btn btn-block btn-outline-primary" href="#">Learn More</a>
 												</div>
-												<!-- End Active Users -->
-						
-												<hr>
-						
-												<a class="btn btn-block btn-outline-primary" href="#">Learn More</a>
 											</div>
 										</div>
-									</div>
-									<!-- End Tab Content -->
-						
-									<!-- Tab Content -->
-									<div class="tab-pane fade" id="overallIncomeTab3" role="tabpanel">
-										<div class="row">
-											<!-- Chart -->
-											<div class="col-md-9 mb-4 mb-md-0" style="min-height: 300px;">
-												<div style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"
-												 class="chartjs-size-monitor">
-													<div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
-														<div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
-													</div>
-													<div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
-														<div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
-													</div>
+										<!-- End Tab Content -->
+							
+										<!-- Tab Content -->
+										<div class="tab-pane fade" id="overallIncomeTab3" role="tabpanel">
+											<div class="row">
+												<!-- Chart -->
+												<div class="col-md-9 mb-4 mb-md-0" style="min-height: 300px;">
+													<div id="fm-helper-charts-drilldown" class="m-0 fm-chart-ws"></div>
 												</div>
-												<canvas class="js-overall-income-chart chartjs-render-monitor" width="741" height="300" style="display: block; width: 741px; height: 300px;"></canvas>
-											</div>
-											<!-- End Chart -->
-						
-											<div class="col-md-3">
-												<!-- Total Income -->
-												<div>
-													<div class="media align-items-center">
-														<div class="media-body d-flex align-items-baseline">
-															<span class="u-indicator u-indicator--xxs bg-primary mr-2"></span>
-															<h5 class="h6 text-muted text-uppercase mb-1">Total Income</h5>
+												<!-- End Chart -->
+							
+												<div class="col-md-3">
+													<!-- Total Hits -->
+													<div>
+														<div class="media align-items-center">
+															<div class="media-body d-flex align-items-baseline">
+																<span class="u-indicator u-indicator--xxs bg-primary mr-2"></span>
+																<h5 class="h6 text-muted text-uppercase mb-1">Total Hits</h5>
+															</div>
+							
+															<div class="d-flex align-items-center h4 text-success">
+																<span>+12.8%</span>
+																<span class="small">
+																	<i class="fa fa-arrow-up ml-2"></i>
+																</span>
+															</div>
 														</div>
-						
-														<div class="d-flex align-items-center h4 text-success">
-															<span>+12.8%</span>
-															<span class="small">
-																<i class="fa fa-arrow-up ml-2"></i>
-															</span>
-														</div>
+														<span class="h3 mb-0">$112,800</span>
 													</div>
-													<span class="h3 mb-0">$112,800</span>
-												</div>
-												<!-- End Total Income -->
-						
-												<hr>
-						
-												<!-- Total Installs -->
-												<div>
-													<div class="media align-items-center">
-														<div class="media-body d-flex align-items-baseline">
-															<span class="u-indicator u-indicator--xxs bg-secondary mr-2"></span>
-															<h5 class="h6 text-muted text-uppercase mb-1">Total Installs</h5>
+													<!-- End Total Hits -->
+							
+													<hr>
+							
+													<!-- Total Installs -->
+													<div>
+														<div class="media align-items-center">
+															<div class="media-body d-flex align-items-baseline">
+																<span class="u-indicator u-indicator--xxs bg-secondary mr-2"></span>
+																<h5 class="h6 text-muted text-uppercase mb-1">Total Installs</h5>
+															</div>
+							
+															<div class="d-flex align-items-center h4 text-success">
+																<span>+8.1%</span>
+																<span class="small">
+																	<i class="fa fa-arrow-up ml-2"></i>
+																</span>
+															</div>
 														</div>
-						
-														<div class="d-flex align-items-center h4 text-success">
-															<span>+8.1%</span>
-															<span class="small">
-																<i class="fa fa-arrow-up ml-2"></i>
-															</span>
-														</div>
+							
+														<span class="h3 mb-0">9,151,304</span>
 													</div>
-						
-													<span class="h3 mb-0">9,151,304</span>
-												</div>
-												<!-- End Total Installs -->
-						
-												<hr>
-						
-												<!-- Active Users -->
-												<div>
-													<div class="media align-items-center">
-														<div class="media-body d-flex align-items-baseline">
-															<span class="u-indicator u-indicator--xxs bg-info mr-2"></span>
-															<h5 class="h6 text-muted text-uppercase mb-1">Active Users</h5>
+													<!-- End Total Installs -->
+							
+													<hr>
+							
+													<!-- Active Users -->
+													<div>
+														<div class="media align-items-center">
+															<div class="media-body d-flex align-items-baseline">
+																<span class="u-indicator u-indicator--xxs bg-info mr-2"></span>
+																<h5 class="h6 text-muted text-uppercase mb-1">Active Users</h5>
+															</div>
+							
+															<div class="d-flex align-items-center h4 text-danger">
+																<span>-1.5%</span>
+																<span class="small">
+																	<i class="fa fa-arrow-down ml-2"></i>
+																</span>
+															</div>
 														</div>
-						
-														<div class="d-flex align-items-center h4 text-danger">
-															<span>-1.5%</span>
-															<span class="small">
-																<i class="fa fa-arrow-down ml-2"></i>
-															</span>
-														</div>
+							
+														<span class="h3 mb-0">3252,191</span>
 													</div>
-						
-													<span class="h3 mb-0">3252,191</span>
+													<!-- End Active Users -->
+							
+													<hr>
+							
+													<a class="btn btn-block btn-outline-primary" href="#">Learn More</a>
 												</div>
-												<!-- End Active Users -->
-						
-												<hr>
-						
-												<a class="btn btn-block btn-outline-primary" href="#">Learn More</a>
 											</div>
 										</div>
+										<!-- End Tab Content -->
 									</div>
-									<!-- End Tab Content -->
 								</div>
+								<!-- End Card Body -->
 							</div>
-							<!-- End Card Body -->
 						</div>
+						
 					</div>
 					<!--Helper Starter Charts Tabs-->
 				</div>
@@ -1056,5 +1037,7 @@
 		<!-- Initialization  -->
 		<script src="./assets/js/sidebar-nav.js"></script>
 		<script src="./assets/js/main.js"></script>
+		<script src="./assets/js/highcharts/controller.js"></script>
+		<script src="./assets/js/highcharts/actions.js"></script>
 	</body>
 </html>
