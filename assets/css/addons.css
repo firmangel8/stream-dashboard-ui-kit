@@ -1,3 +1,8 @@
+/**For Helper color text**/
+.fm-white-smooth{
+    color: #fefefe;
+}
+/**For Helper color text**/
 .fm-border-left-warning{
     border-left-width: 10px !important;
     border-left-color: #E3A43B !important;
@@ -29,5 +34,13 @@
     min-width: 400px !important;
 }
 /**For container charts**/
+
+/**For cards color variant**/
+.fm-card-dark{
+    background: #212121;
+    color: #fff;
+    border-radius: 10px !important;
+}
+/**For cards color variant**/
 
 
