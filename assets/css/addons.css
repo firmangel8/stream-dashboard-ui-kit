@@ -24,4 +24,10 @@
     border-left-color: #4267B2 !important;
 }
 
+/**For container charts**/
+.fm-chart-ws{
+    min-width: 400px !important;
+}
+/**For container charts**/
+
 
