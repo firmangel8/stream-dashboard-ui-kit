@@ -3,6 +3,14 @@
     color: #fefefe;
 }
 /**For Helper color text**/
+/**For Helper Border Radius**/
+.fm-br-10{
+    border-radius: 10px !important;
+}
+.fm-br-12{
+    border-radius: 12px !important;
+}
+/**For Helper Border Radius**/
 .fm-border-left-warning{
     border-left-width: 10px !important;
     border-left-color: #E3A43B !important;
